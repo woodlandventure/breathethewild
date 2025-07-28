@@ -12,10 +12,12 @@ function App() {
         position: "absolute",
         display: "flex",
         justifyContent: "center",
+        alignItems: "center",
         top: 0,
         left: 0,
         right: 0,
         bottom: 0,
+        overflow: "hidden",
       })}
     >
       {/* Background Image */}
@@ -23,6 +25,7 @@ function App() {
         className={css({
           position: "relative",
           height: "100%",
+          width: "100%",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -33,9 +36,11 @@ function App() {
           src={FullPoster}
           alt="Background"
           className={css({
-            height: "100%",
+            maxWidth: "100%",
+            maxHeight: "100%",
             width: "auto",
-            objectFit: "cover",
+            height: "auto",
+            objectFit: "contain",
             objectPosition: "center",
           })}
         />
