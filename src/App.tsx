@@ -1,50 +1,76 @@
-import { css } from "../styled-system/css";
-import FullPoster from "./assets/FullPoster.jpg";
 import "./index.css";
+import { css } from "../styled-system/css";
+import { useLayoutEffect, useRef } from "react";
+import { CardCarousel } from "./components/CardCarousel";
+import { ContentSection } from "./components/ContentSection";
+import { HeroSection } from "./components/HeroSection";
+import { IntroSection } from "./components/IntroSection";
+import { SnapSection } from "./components/SnapSection";
 
 function App() {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    // scrollContainerRef.current?.scrollTo({ top: 0, left: 0 });
+  }, []);
+
   return (
     <div
+      ref={scrollContainerRef}
       className={css({
-        height: "100vh",
-        width: "100vw",
-        bg: "#787864",
-        position: "absolute",
+        position: "relative",
+        width: "100%",
         display: "flex",
-        justifyContent: "center",
+        flexDirection: "column",
+        justifyContent: "flex-start",
         alignItems: "center",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        overflow: "hidden",
+        backgroundColor: "forest.deep",
+        color: "primary.light",
+        height: "100vh",
+        overflowY: "auto",
+        scrollSnapType: "y mandatory",
       })}
     >
-      {/* Background Image */}
-      <div
-        className={css({
-          position: "relative",
-          height: "100%",
-          width: "100%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          overflow: "hidden",
-        })}
-      >
-        <img
-          src={FullPoster}
-          alt="Background"
+      <HeroSection />
+      <IntroSection />
+      <SnapSection>
+        <CardCarousel />
+      </SnapSection>
+      <ContentSection title="Launching Summer 2026" gap="1.5rem">
+        <p
           className={css({
-            maxWidth: "100%",
-            maxHeight: "100%",
-            width: "auto",
-            height: "auto",
-            objectFit: "contain",
-            objectPosition: "center",
+            textStyle: "highlight",
+            margin: 0,
           })}
-        />
-      </div>
+        >
+          20th to 24th July | 10am - 4pm
+        </p>
+        <h2
+          className={css({
+            textStyle: "subheading",
+            margin: 0,
+            color: "background.surface",
+          })}
+        >
+          25 places remaining
+        </h2>
+        <a
+          href="mailto:diana@breathethewild.co.uk"
+          className={css({
+            alignSelf: "center",
+            textStyle: "highlight",
+            shadow: "md",
+            color: "background.dark",
+            borderRadius: "1rem",
+            backgroundColor: "primary.main",
+            textDecoration: "none",
+            px: "1.5rem",
+            py: "0.75rem",
+          })}
+        >
+          Book your place
+        </a>
+      </ContentSection>
     </div>
   );
 }
