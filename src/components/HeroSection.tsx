@@ -11,6 +11,7 @@ export const HeroSection = () => {
         position: "relative",
         width: "100%",
         boxSizing: "border-box",
+        flexShrink: 0,
         display: "flex",
         flexDirection: "row",
         justifyContent: "center",

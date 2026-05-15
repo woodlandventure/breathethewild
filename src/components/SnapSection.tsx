@@ -16,9 +16,9 @@ export const SnapSection = ({
       className={css({
         position: "relative",
         minHeight: "100dvh",
-        height: "100dvh",
         width: "100%",
         boxSizing: "border-box",
+        flexShrink: 0,
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",

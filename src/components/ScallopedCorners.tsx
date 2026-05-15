@@ -15,16 +15,19 @@ const scallopedMask = {
 } as const;
 
 export const ScallopedCorners = ({
+  onClick,
   children,
   className,
   contentClassName,
 }: {
+  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
   children: ReactNode;
   className?: string;
   contentClassName?: string;
 }) => {
   return (
     <div
+      onClick={onClick}
       className={cx(
         css({
           backgroundColor: "primary.oakBarkBrown",

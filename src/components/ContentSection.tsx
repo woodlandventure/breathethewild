@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import type { ReactNode } from "react";
 import { css } from "../../styled-system/css";
 import { ScallopedCorners } from "./ScallopedCorners";
@@ -14,41 +15,48 @@ export const ContentSection = ({
 }) => {
   return (
     <SnapSection color="firelight" showScrollIndicator={false}>
-      <ScallopedCorners
-        className={css({
-          maxWidth: "56rem",
-          m: "1rem",
-          shadow: "md",
-        })}
-        contentClassName={css({
-          textAlign: "center",
-          display: "flex",
-          flexDirection: "column",
-          color: "secondary.blackberry",
-          py: "3rem",
-          px: "2rem",
-        })}
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.35 }}
+        transition={{ duration: 0.45, ease: "easeOut" }}
       >
-        <div
-          style={{
-            gap,
-          }}
+        <ScallopedCorners
           className={css({
+            maxWidth: "56rem",
+            m: "1rem",
+            shadow: "md",
+          })}
+          contentClassName={css({
+            textAlign: "center",
             display: "flex",
             flexDirection: "column",
+            color: "secondary.blackberry",
+            py: "3rem",
+            px: "2rem",
           })}
         >
-          <h2
+          <div
+            style={{
+              gap,
+            }}
             className={css({
-              textStyle: "heading",
-              margin: 0,
+              display: "flex",
+              flexDirection: "column",
             })}
           >
-            {title}
-          </h2>
-          {children}
-        </div>
-      </ScallopedCorners>
+            <h2
+              className={css({
+                textStyle: "heading",
+                margin: 0,
+              })}
+            >
+              {title}
+            </h2>
+            {children}
+          </div>
+        </ScallopedCorners>
+      </motion.div>
     </SnapSection>
   );
 };

@@ -1,7 +1,7 @@
 import "./index.css";
 import { css } from "../styled-system/css";
 import { useRef } from "react";
-import { CardCarousel } from "./components/CardCarousel";
+import { CardGrid } from "./components/CardGrid";
 import { ContentSection } from "./components/ContentSection";
 import { HeroSection } from "./components/HeroSection";
 import { IntroSection } from "./components/IntroSection";
@@ -15,7 +15,7 @@ function App() {
       ref={scrollContainerRef}
       className={css({
         position: "relative",
-        width: "100vw",
+        width: "100%",
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-start",
@@ -30,8 +30,8 @@ function App() {
     >
       <HeroSection />
       <IntroSection />
-      <SnapSection color="blackberry">
-        <CardCarousel />
+      <SnapSection showScrollIndicator={false} color="blackberry">
+        <CardGrid />
       </SnapSection>
       <ContentSection title="Launching Summer 2026" gap="1.5rem">
         <p
@@ -51,7 +51,7 @@ function App() {
           25 places remaining
         </h2>
         <a
-          href="mailto:diana@breathethewild.co.uk"
+          href="https://buytickets.at/breathethewildtheatrecompany/2215560"
           className={css({
             alignSelf: "center",
             textStyle: "highlight",
