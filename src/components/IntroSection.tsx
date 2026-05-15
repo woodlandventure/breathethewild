@@ -30,6 +30,7 @@ export const IntroSection = () => {
         className={css({
           textAlign: "center",
           textStyle: "subheading",
+          fontSize: "2rem",
           margin: "2rem",
           color: "accent.candlelight",
         })}
@@ -40,6 +41,7 @@ export const IntroSection = () => {
         className={css({
           textAlign: "center",
           textStyle: "body",
+          fontSize: "1.5rem",
           maxWidth: "48rem",
           mx: "1rem",
         })}

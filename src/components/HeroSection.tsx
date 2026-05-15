@@ -24,8 +24,8 @@ export const HeroSection = () => {
       <div
         className={css({
           position: "absolute",
-          top: "1.5rem",
-          left: "1.5rem",
+          top: "max(1.5rem, env(safe-area-inset-top))",
+          left: "max(1.5rem, env(safe-area-inset-left))",
           zIndex: 3,
           color: "accent.candlelight",
           textStyle: "brand",

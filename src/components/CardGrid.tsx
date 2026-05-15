@@ -29,7 +29,7 @@ export const CardGrid = () => {
           base: "1fr",
           md: "repeat(2, minmax(0, 1fr))",
         },
-        gap: { base: "1rem", md: "2rem" },
+        gap: { base: "2rem", md: "3rem" },
         p: "1rem",
         my: "1rem",
       })}
