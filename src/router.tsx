@@ -1,9 +1,16 @@
 import { createRootRoute, createRoute, createRouter, Outlet } from "@tanstack/react-router";
 import App from "./App";
+import { AboutPage } from "./components/AboutPage";
+import { NavBar } from "./components/NavBar";
 import { PalettePage } from "./components/PalettePage";
 
 const rootRoute = createRootRoute({
-  component: Outlet,
+  component: () => (
+    <>
+      <NavBar />
+      <Outlet />
+    </>
+  ),
 });
 
 const homeRoute = createRoute({
@@ -18,7 +25,13 @@ const paletteRoute = createRoute({
   component: PalettePage,
 });
 
-const routeTree = rootRoute.addChildren([homeRoute, paletteRoute]);
+const aboutRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/about",
+  component: AboutPage,
+});
+
+const routeTree = rootRoute.addChildren([homeRoute, paletteRoute, aboutRoute]);
 
 export const router = createRouter({
   routeTree,
