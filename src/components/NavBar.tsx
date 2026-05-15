@@ -5,6 +5,7 @@ import { css } from "../../styled-system/css";
 const navItems = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
+  { to: "https://buytickets.at/breathethewildtheatrecompany/2215560", label: "Book now" },
 ] as const;
 
 export const NavBar = () => {

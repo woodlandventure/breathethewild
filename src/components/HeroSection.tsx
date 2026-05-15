@@ -1,5 +1,6 @@
 import { css } from "../../styled-system/css";
 import BackgroundImage from "../assets/breathe-background.jpg";
+import { BookNow } from "./BookNow";
 import { ScrollDownIndicator } from "./ScrollDownIndicator";
 
 export const HeroSection = () => {
@@ -80,11 +81,12 @@ export const HeroSection = () => {
         <div
           className={css({
             textStyle: "heading",
-            mb: "1rem",
+            mb: "4rem",
           })}
         >
           The Forest History Mystery
         </div>
+        <BookNow color="light" />
       </div>
       <ScrollDownIndicator />
     </section>

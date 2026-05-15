@@ -23,8 +23,7 @@ export const SnapSection = ({
           width: "100%",
           boxSizing: "border-box",
           flexShrink: 0,
-          display: "flex",
-          flexDirection: "column",
+          display: "block",
           overflow: "hidden",
           scrollSnapAlign: "start",
           scrollSnapStop: "always",
@@ -36,14 +35,14 @@ export const SnapSection = ({
                 : "primary.firelightAmber",
         })}
       >
+        {/* Absolute scrollport: WebKit often mishandles nested overflow-y inside flex + scroll-snap parents */}
         <div
           className={css({
-            flex: "1 1 0",
-            minHeight: 0,
-            width: "100%",
+            position: "absolute",
+            inset: 0,
             overflowY: "auto",
             overflowX: "hidden",
-            WebkitOverflowScrolling: "touch",
+            touchAction: "pan-y",
           })}
         >
           <div

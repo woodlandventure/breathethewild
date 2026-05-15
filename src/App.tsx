@@ -6,6 +6,7 @@ import { ContentSection } from "./components/ContentSection";
 import { HeroSection } from "./components/HeroSection";
 import { IntroSection } from "./components/IntroSection";
 import { SnapSection } from "./components/SnapSection";
+import { BookNow } from "./components/BookNow";
 
 function App() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -52,20 +53,7 @@ function App() {
         >
           25 places remaining
         </h2>
-        <a
-          href="https://buytickets.at/breathethewildtheatrecompany/2215560"
-          className={css({
-            alignSelf: "center",
-            textStyle: "highlight",
-            color: "secondary.parchmentCream",
-            backgroundColor: "secondary.blackberry",
-            textDecoration: "none",
-            px: "1.5rem",
-            py: "0.75rem",
-          })}
-        >
-          Book your place →
-        </a>
+        <BookNow color="blackberry" />
       </ContentSection>
     </div>
   );
