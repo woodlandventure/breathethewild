@@ -7,6 +7,8 @@ export const AboutPage = () => {
         height: "100dvh",
         width: "100%",
         overflowY: "auto",
+        overscrollBehaviorY: "contain",
+        overscrollBehaviorX: "none",
         backgroundColor: "primary.deepForestGreen",
         color: "secondary.parchmentCream",
         p: { base: "1.5rem", md: "3rem" },

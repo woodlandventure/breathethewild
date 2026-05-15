@@ -12,6 +12,8 @@ export const PalettePage = () => {
         height: "100dvh",
         width: "100%",
         overflowY: "auto",
+        overscrollBehaviorY: "contain",
+        overscrollBehaviorX: "none",
         backgroundColor: "primary.blackberry",
         color: "secondary.parchmentCream",
         p: { base: "1.5rem", md: "3rem" },

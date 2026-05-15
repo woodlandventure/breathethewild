@@ -25,6 +25,8 @@ function App() {
         height: "100dvh",
         overflowY: "auto",
         overflowX: "hidden",
+        overscrollBehaviorY: "contain",
+        overscrollBehaviorX: "none",
         scrollSnapType: "y mandatory",
       })}
     >

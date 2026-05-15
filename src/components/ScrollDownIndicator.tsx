@@ -14,6 +14,7 @@ export const ScrollDownIndicator = () => {
         textStyle: "highlight",
         textAlign: "center",
         zIndex: 5,
+        mb: "1rem",
       })}
     >
       <motion.div
