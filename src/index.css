@@ -2,7 +2,8 @@
 
 @layer base {
   :root {
-    --font-sans: 'Modern Antiqua', serif;
+    --font-sans: 'IM Fell English', serif;
+    /* --font-sans: 'Cormorant Garamond', serif; */
   }
 
   html {
@@ -10,19 +11,24 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overscroll-behavior-y: none;
-    background-color: #1A1D21;
+    background-color: #3D2338;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
   }
 
   body {
     margin: 0;
-    background-color: #1A1D21;
+    background-color: #3D2338;
     overscroll-behavior-y: none;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
   }
 
   #root {
-    min-height: 100vh;
-    background-color: #1A1D21;
+    width: 100%;
+    height: 100dvh;
+    background-color: #3D2338;
   }
 }

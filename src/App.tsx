@@ -1,6 +1,6 @@
 import "./index.css";
 import { css } from "../styled-system/css";
-import { useLayoutEffect, useRef } from "react";
+import { useRef } from "react";
 import { CardCarousel } from "./components/CardCarousel";
 import { ContentSection } from "./components/ContentSection";
 import { HeroSection } from "./components/HeroSection";
@@ -10,30 +10,27 @@ import { SnapSection } from "./components/SnapSection";
 function App() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  useLayoutEffect(() => {
-    // scrollContainerRef.current?.scrollTo({ top: 0, left: 0 });
-  }, []);
-
   return (
     <div
       ref={scrollContainerRef}
       className={css({
         position: "relative",
-        width: "100%",
+        width: "100vw",
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-start",
         alignItems: "center",
-        backgroundColor: "forest.deep",
-        color: "primary.light",
-        height: "100vh",
+        backgroundColor: "primary.blackberry",
+        color: "accent.candlelight",
+        height: "100dvh",
         overflowY: "auto",
+        overflowX: "hidden",
         scrollSnapType: "y mandatory",
       })}
     >
       <HeroSection />
       <IntroSection />
-      <SnapSection>
+      <SnapSection color="blackberry">
         <CardCarousel />
       </SnapSection>
       <ContentSection title="Launching Summer 2026" gap="1.5rem">
@@ -49,7 +46,6 @@ function App() {
           className={css({
             textStyle: "subheading",
             margin: 0,
-            color: "background.surface",
           })}
         >
           25 places remaining
@@ -59,16 +55,14 @@ function App() {
           className={css({
             alignSelf: "center",
             textStyle: "highlight",
-            shadow: "md",
-            color: "background.dark",
-            borderRadius: "1rem",
-            backgroundColor: "primary.main",
+            color: "secondary.parchmentCream",
+            backgroundColor: "secondary.blackberry",
             textDecoration: "none",
             px: "1.5rem",
             py: "0.75rem",
           })}
         >
-          Book your place
+          Book your place →
         </a>
       </ContentSection>
     </div>

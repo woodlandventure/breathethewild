@@ -34,8 +34,8 @@ export const CardCarousel = () => {
       <div
         className={css({
           position: "relative",
-          width: "20rem",
-          height: "20rem",
+          width: "min(20rem, calc(100vw - 2rem))",
+          height: "min(20rem, calc(100vw - 2rem))",
         })}
       >
         <AnimatePresence mode="wait">
@@ -69,7 +69,7 @@ export const CardCarousel = () => {
               width: "0.75rem",
               height: "0.75rem",
               borderRadius: "999px",
-              backgroundColor: index === currentIndex ? "primary.light" : "background.surface",
+              backgroundColor: index === currentIndex ? "accent.candlelight" : "accent.smoke",
               opacity: index === currentIndex ? 1 : 0.5,
             })}
           />

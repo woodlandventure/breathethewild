@@ -27,7 +27,7 @@ export const ScallopedCorners = ({
     <div
       className={cx(
         css({
-          backgroundColor: "background.surface",
+          backgroundColor: "primary.oakBarkBrown",
           padding: "2px",
           ...scallopedMask,
         }),
@@ -37,7 +37,7 @@ export const ScallopedCorners = ({
       <div
         className={cx(
           css({
-            backgroundColor: "primary.light",
+            backgroundColor: "secondary.parchmentCream",
             width: "100%",
             height: "100%",
             boxSizing: "border-box",

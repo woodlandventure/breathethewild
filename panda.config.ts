@@ -48,22 +48,23 @@ export default defineConfig({
     extend: {
       tokens: {
         colors: {
-          background: {
-            dark: { value: colorTheme.colors.background.dark },
-            paper: { value: colorTheme.colors.background.paper },
-            surface: { value: colorTheme.colors.background.surface },
-          },
           primary: {
-            main: { value: colorTheme.colors.primary.main },
-            light: { value: colorTheme.colors.primary.light },
+            deepForestGreen: { value: colorTheme.colors.primary.deepForestGreen },
+            mossGreen: { value: colorTheme.colors.primary.mossGreen },
+            oakBarkBrown: { value: colorTheme.colors.primary.oakBarkBrown },
+            emberGold: { value: colorTheme.colors.primary.emberGold },
+            firelightAmber: { value: colorTheme.colors.primary.firelightAmber },
           },
-          forest: {
-            deep: { value: colorTheme.colors.forest.deep },
-            olive: { value: colorTheme.colors.forest.olive },
+          secondary: {
+            mistGrey: { value: colorTheme.colors.secondary.mistGrey },
+            parchmentCream: { value: colorTheme.colors.secondary.parchmentCream },
+            blackberry: { value: colorTheme.colors.secondary.blackberry },
+            weatheredCopper: { value: colorTheme.colors.secondary.weatheredCopper },
           },
           accent: {
-            fire: { value: colorTheme.colors.accent.fire },
-            ember: { value: colorTheme.colors.accent.ember },
+            fern: { value: colorTheme.colors.accent.fern },
+            candlelight: { value: colorTheme.colors.accent.candlelight },
+            smoke: { value: colorTheme.colors.accent.smoke },
           },
         },
         fonts: {

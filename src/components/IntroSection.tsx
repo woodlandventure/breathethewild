@@ -3,13 +3,13 @@ import { SnapSection } from "./SnapSection";
 
 export const IntroSection = () => {
   return (
-    <SnapSection>
+    <SnapSection color="forestDark">
       <div
         className={css({
           textAlign: "center",
           textStyle: "subheading",
           margin: "2rem",
-          color: "primary.light",
+          color: "accent.candlelight",
         })}
       >
         Travel back to a world of secrets, suspicion & survival

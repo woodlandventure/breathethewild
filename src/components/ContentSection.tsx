@@ -13,7 +13,7 @@ export const ContentSection = ({
   gap?: string;
 }) => {
   return (
-    <SnapSection showScrollIndicator={false}>
+    <SnapSection color="firelight" showScrollIndicator={false}>
       <ScallopedCorners
         className={css({
           maxWidth: "56rem",
@@ -24,7 +24,7 @@ export const ContentSection = ({
           textAlign: "center",
           display: "flex",
           flexDirection: "column",
-          color: "background.surface",
+          color: "secondary.blackberry",
           py: "3rem",
           px: "2rem",
         })}
@@ -42,7 +42,6 @@ export const ContentSection = ({
             className={css({
               textStyle: "heading",
               margin: 0,
-              color: "background.surface",
             })}
           >
             {title}

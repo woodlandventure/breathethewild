@@ -7,12 +7,11 @@ export const ScrollDownIndicator = () => {
       aria-hidden="true"
       className={css({
         position: "absolute",
-        bottom: "2rem",
+        bottom: "max(1rem, env(safe-area-inset-bottom))",
         left: "50%",
         transform: "translateX(-50%)",
-        color: "primary.light",
-        textStyle: "body",
-        opacity: 0.8,
+        color: "accent.candlelight",
+        textStyle: "highlight",
         textAlign: "center",
         zIndex: 5,
       })}

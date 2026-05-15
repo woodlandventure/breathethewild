@@ -5,18 +5,18 @@ export const Card = ({ text }: { text: string }) => {
   return (
     <ScallopedCorners
       className={css({
-        width: "20rem",
-        height: "20rem",
+        width: "min(20rem, calc(100vw - 2rem))",
+        height: "min(20rem, calc(100vw - 2rem))",
       })}
       contentClassName={css({
-          color: "background.surface",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          textAlign: "center",
-          textStyle: "subheading",
-          padding: "1rem",
-        })}
+        color: "primary.oakBarkBrown",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        textAlign: "center",
+        textStyle: "subheading",
+        padding: "1rem",
+      })}
     >
       {text}
     </ScallopedCorners>

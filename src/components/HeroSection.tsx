@@ -6,9 +6,11 @@ export const HeroSection = () => {
   return (
     <section
       className={css({
-        minHeight: "100vh",
+        minHeight: "100dvh",
+        height: "100dvh",
         position: "relative",
         width: "100%",
+        boxSizing: "border-box",
         display: "flex",
         flexDirection: "row",
         justifyContent: "center",
@@ -24,7 +26,7 @@ export const HeroSection = () => {
           top: "1.5rem",
           left: "1.5rem",
           zIndex: 3,
-          color: "primary.light",
+          color: "accent.candlelight",
           textStyle: "brand",
         })}
       >
@@ -69,7 +71,7 @@ export const HeroSection = () => {
           alignItems: "center",
           width: { base: "100%", md: "50%" },
           height: "100%",
-          color: "primary.light",
+          color: "accent.candlelight",
           textAlign: "center",
           mx: "1rem",
         })}
