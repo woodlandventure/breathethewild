@@ -1,5 +1,5 @@
 import { css } from "../../styled-system/css";
-import BackgroundImage from "../assets/breathe-background.jpg";
+import BackgroundImage from "../assets/breathe-background-small.jpg";
 import { BookNow } from "./BookNow";
 import { ScrollDownIndicator } from "./ScrollDownIndicator";
 
