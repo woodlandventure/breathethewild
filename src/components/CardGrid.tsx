@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { css } from "../../styled-system/css";
 import { Card } from "./Card";
+import { ScrollDownIndicator } from "./ScrollDownIndicator";
 
 const cardTexts = [
   "Build real-time character",
@@ -46,6 +47,9 @@ export const CardGrid = () => {
           <Card text={text} />
         </motion.div>
       ))}
+      <div className={css({ h: "5rem", position: "relative" })}>
+        <ScrollDownIndicator />
+      </div>
     </motion.div>
   );
 };

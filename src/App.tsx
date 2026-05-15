@@ -32,7 +32,7 @@ function App() {
     >
       <HeroSection />
       <IntroSection />
-      <SnapSection showScrollIndicator={false} color="blackberry">
+      <SnapSection showScrollIndicator={false} color="blackberry" containInnerScroll>
         <CardGrid />
       </SnapSection>
       <ContentSection title="Launching Summer 2026" gap="1.5rem">
