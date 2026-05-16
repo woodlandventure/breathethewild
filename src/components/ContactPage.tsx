@@ -17,6 +17,7 @@ export const ContactPage = () => {
         color: "secondary.parchmentCream",
         p: { base: "1.5rem", md: "3rem" },
         pt: { base: "5rem", md: "6rem" },
+        textAlign: "center",
       })}
     >
       <article
@@ -46,7 +47,7 @@ export const ContactPage = () => {
           Lead - level 3 DSL and Dan is an experienced and qualified Forest School Leader.
         </p>{" "}
         <p className={paragraphClass}>
-          Read more about Diana and{" "}
+          Read more about Diana and Dan{" "}
           <Link
             className={css({ color: "accent.candlelight", textDecoration: "underline" })}
             to="/about"

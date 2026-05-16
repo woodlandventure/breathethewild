@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { css } from "../../styled-system/css";
+import { css, cx } from "../../styled-system/css";
+import { useNavHomeFinalSectionSafe } from "../context/NavHomeFinalSectionContext";
 
 type NavItem =
   | {
@@ -29,6 +30,14 @@ const navItems: NavItem[] = [
 export const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
+  const isHomeFinalInView = useNavHomeFinalSectionSafe();
+
+  const menuBarClass = css({
+    display: "block",
+    width: "100%",
+    height: "2px",
+    backgroundColor: isHomeFinalInView ? "primary.oakBarkBrown" : "accent.candlelight",
+  });
 
   useEffect(() => {
     if (!isOpen) return;
@@ -45,7 +54,7 @@ export const NavBar = () => {
 
   const itemClass = css({
     textStyle: "body",
-    color: "accent.candlelight",
+    color: isHomeFinalInView ? "primary.oakBarkBrown" : "accent.candlelight",
     textDecoration: "none",
     outline: "none",
   });
@@ -56,15 +65,15 @@ export const NavBar = () => {
       aria-label="Main navigation"
       className={css({
         position: "fixed",
-        top: "max(1rem, env(safe-area-inset-top))",
-        right: "max(1rem, env(safe-area-inset-right))",
+        top: 0,
+        right: 0,
         zIndex: 4,
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-end",
         gap: "0.5rem",
-        px: "0.75rem",
-        py: "0.5rem",
+        px: isOpen ? 0 : "0.75rem",
+        py: isOpen ? 0 : "0.5rem",
       })}
     >
       {isOpen ? (
@@ -74,6 +83,14 @@ export const NavBar = () => {
             flexDirection: "column",
             alignItems: "flex-end",
             gap: "0.5rem",
+            p: "1rem",
+            borderEndStartRadius: "1rem",
+            borderLeft: "2px solid",
+            borderBottom: "2px solid",
+            borderColor: isHomeFinalInView ? "primary.oakBarkBrown" : "accent.candlelight",
+            pt: "max(1rem, env(safe-area-inset-top))",
+            pr: "max(1rem, env(safe-area-inset-right))",
+            backgroundColor: !isHomeFinalInView ? "primary.deepForestGreen" : "accent.candlelight",
           })}
         >
           {navItems.map((item) =>
@@ -107,7 +124,7 @@ export const NavBar = () => {
           onClick={() => setIsOpen((open) => !open)}
           className={css({
             textStyle: "body",
-            color: "accent.candlelight",
+            color: isHomeFinalInView ? "primary.oakBarkBrown" : "accent.candlelight",
             backgroundColor: "transparent",
             border: "none",
             cursor: "pointer",
@@ -117,6 +134,8 @@ export const NavBar = () => {
             display: "flex",
             flexDirection: "column",
             gap: "0.3rem",
+            mt: "max(1rem, env(safe-area-inset-top))",
+            mr: "max(1rem, env(safe-area-inset-right))",
           })}
         >
           <span className={menuBarClass} />
@@ -127,10 +146,3 @@ export const NavBar = () => {
     </nav>
   );
 };
-
-const menuBarClass = css({
-  display: "block",
-  width: "100%",
-  height: "2px",
-  backgroundColor: "accent.candlelight",
-});

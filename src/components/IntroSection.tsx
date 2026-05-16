@@ -78,7 +78,7 @@ export const IntroSection = () => {
           borderStyle: "solid",
         })}
       >
-        What's the mystery?
+        What's the mystery? →
       </button>
       {isReadMoreOpen && (
         <div

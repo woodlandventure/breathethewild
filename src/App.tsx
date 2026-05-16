@@ -1,15 +1,43 @@
 import "./index.css";
 import { css } from "../styled-system/css";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import { useNavHomeFinalSection } from "./context/NavHomeFinalSectionContext";
 import { CardGrid } from "./components/CardGrid";
 import { ContentSection } from "./components/ContentSection";
 import { HeroSection } from "./components/HeroSection";
 import { IntroSection } from "./components/IntroSection";
 import { SnapSection } from "./components/SnapSection";
 import { BookNow } from "./components/BookNow";
+import { Link } from "@tanstack/react-router";
+import { DianaImage, DanImage } from "./components/AboutPage";
 
 function App() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const finalSectionRef = useRef<HTMLDivElement>(null);
+  const { setHomeFinalInView } = useNavHomeFinalSection();
+
+  useEffect(() => {
+    const root = scrollContainerRef.current;
+    const target = finalSectionRef.current;
+    if (!root || !target) return;
+
+    const handle = (entries: IntersectionObserverEntry[]) => {
+      const entry = entries[0];
+      if (!entry) return;
+      setHomeFinalInView(entry.isIntersecting && entry.intersectionRatio >= 0.2);
+    };
+
+    const observer = new IntersectionObserver(handle, {
+      root,
+      rootMargin: "0px",
+      threshold: [0, 0.1, 0.2, 0.35, 0.5, 0.75, 1],
+    });
+    observer.observe(target);
+    return () => {
+      observer.disconnect();
+      setHomeFinalInView(false);
+    };
+  }, [setHomeFinalInView]);
 
   return (
     <div
@@ -36,25 +64,82 @@ function App() {
       <SnapSection showScrollIndicator={false} color="blackberry" containInnerScroll>
         <CardGrid />
       </SnapSection>
-      <ContentSection title="Early Bird Tickets Available" gap="1.5rem">
-        <p
+      <SnapSection showScrollIndicator={false} color="forestDark" containInnerScroll>
+        <div
           className={css({
-            textStyle: "highlight",
-            margin: 0,
+            textStyle: "body",
+            fontSize: "1.5rem",
+            maxWidth: "48rem",
+            mx: "1rem",
+            alignItems: "stretch",
+            display: "flex",
+            flexDirection: "column",
+            gap: "2rem",
+            textAlign: "center",
+            my: "2rem",
           })}
         >
-          20th to 24th July 2026 | 10am - 4pm
-        </p>
-        <h2
-          className={css({
-            textStyle: "subheading",
-            margin: 0,
-          })}
-        >
-          25 remaining
-        </h2>
-        <BookNow color="blackberry" />
-      </ContentSection>
+          <h2 className={css({ textStyle: "heading", margin: 0 })}>Who are we?</h2>
+          <div
+            className={css({
+              justifyContent: "center",
+              display: "flex",
+              flexDirection: "row",
+              gap: "1rem",
+              flexWrap: "wrap",
+            })}
+          >
+            <DianaImage />
+            <DanImage />
+          </div>
+          Together, Diana and Dan have over 50 years of teaching experience. Diana is an experienced
+          Safeguarding Lead - level 3 DSL and Dan is an experienced and qualified Forest School
+          Leader.
+          <Link
+            to="/about"
+            className={css({
+              alignSelf: "center",
+              backgroundColor: "accent.candlelight",
+              textStyle: "highlight",
+              color: "primary.oakBarkBrown",
+              border: "2px solid",
+              borderColor: "primary.oakBarkBrown",
+              p: "1rem",
+
+              margin: 0,
+            })}
+          >
+            Find out more →
+          </Link>
+        </div>
+      </SnapSection>
+      <div
+        ref={finalSectionRef}
+        className={css({
+          width: "100%",
+          flexShrink: 0,
+        })}
+      >
+        <ContentSection title="Early Bird Tickets Available" gap="1.5rem">
+          <p
+            className={css({
+              textStyle: "highlight",
+              margin: 0,
+            })}
+          >
+            20th to 24th July 2026 | 10am - 4pm
+          </p>
+          <h2
+            className={css({
+              textStyle: "subheading",
+              margin: 0,
+            })}
+          >
+            25 remaining
+          </h2>
+          <BookNow color="blackberry" />
+        </ContentSection>
+      </div>
     </div>
   );
 }

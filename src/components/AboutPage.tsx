@@ -2,6 +2,16 @@ import DanPhoto from "../assets/dan.jpeg";
 import DianaPhoto from "../assets/Diana.jpeg";
 import { css } from "../../styled-system/css";
 
+export const DianaImage = () => {
+  return (
+    <img src={DianaPhoto} alt="Portrait of Diana Gillinder" className={aboutPortraitPhotoClass} />
+  );
+};
+
+export const DanImage = () => {
+  return <img src={DanPhoto} alt="Portrait of Dan Gillinder" className={aboutPortraitPhotoClass} />;
+};
+
 export const AboutPage = () => {
   return (
     <main
@@ -48,11 +58,7 @@ export const AboutPage = () => {
           Diana Gillinder
         </h2>
 
-        <img
-          src={DianaPhoto}
-          alt="Portrait of Diana Gillinder"
-          className={aboutPortraitPhotoClass}
-        />
+        <DianaImage />
 
         <p className={paragraphClass}>
           Breathe the Wild has been created by Diana Gillinder, an experienced educator, theatre
@@ -87,7 +93,7 @@ export const AboutPage = () => {
         >
           Dan Gillinder
         </h2>
-        <img src={DanPhoto} alt="Portrait of Dan Gillinder" className={aboutPortraitPhotoClass} />
+        <DanImage />
         <p className={paragraphClass}>
           Dan Gillinder is the managing director of Woodland Venture and a fully qualified Forest
           School Leader who has been running Forest School programmes in partnership with local
