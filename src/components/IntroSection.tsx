@@ -30,12 +30,12 @@ export const IntroSection = () => {
         className={css({
           textAlign: "center",
           textStyle: "subheading",
-          fontSize: "2rem",
+          fontSize: "3rem",
           margin: "2rem",
           color: "accent.candlelight",
         })}
       >
-        Travel back to a world of secrets, suspicion & survival
+        An experience like no other
       </div>
       <div
         className={css({
@@ -46,7 +46,8 @@ export const IntroSection = () => {
           mx: "1rem",
         })}
       >
-        An immersive outdoor adventure set in the ancient oak woodland of Langton Green.
+        The Forest History Mystery is an immersive week-long adventure where players journey back in
+        time to the year 1601
       </div>
       <button
         type="button"
@@ -54,15 +55,18 @@ export const IntroSection = () => {
         className={css({
           mt: "2rem",
           textStyle: "highlight",
-          color: "primary.deepForestGreen",
+          color: "black",
           backgroundColor: "accent.candlelight",
           border: "none",
           cursor: "pointer",
           px: "1.5rem",
           py: "0.75rem",
+          borderColor: "black",
+          borderRadius: "1px",
+          borderStyle: "solid",
         })}
       >
-        Read more
+        What's the mystery?
       </button>
       {isReadMoreOpen && (
         <div

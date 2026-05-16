@@ -4,9 +4,9 @@ import { Card } from "./Card";
 import { ScrollDownIndicator } from "./ScrollDownIndicator";
 
 const cardTexts = [
-  "Build real-time character",
-  "Form powerful connections",
   "Grow confidence and independence",
+  "Form powerful connections",
+  "Build real-time characters",
   "Solve mysteries from 1601",
 ] as const;
 
@@ -33,7 +33,7 @@ export const CardGrid = () => {
           },
           gap: { base: "2rem", md: "3rem" },
           p: "1rem",
-          my: "1rem",
+          my: "2rem",
         })}
       >
         {cardTexts.map((text) => (
@@ -50,7 +50,7 @@ export const CardGrid = () => {
         ))}
       </motion.div>
 
-      <div className={css({ h: "5rem", position: "relative" })}>
+      <div className={css({ h: "10rem", position: "relative" })}>
         <ScrollDownIndicator />
       </div>
     </div>

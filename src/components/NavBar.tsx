@@ -2,11 +2,29 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { css } from "../../styled-system/css";
 
-const navItems = [
-  { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
-  { to: "https://buytickets.at/breathethewildtheatrecompany/2215560", label: "Book now" },
-] as const;
+type NavItem =
+  | {
+      to: string;
+      href: undefined;
+      label: string;
+    }
+  | {
+      href: string;
+      to: undefined;
+      label: string;
+    };
+
+const navItems: NavItem[] = [
+  { to: "/", href: undefined, label: "Home" },
+  { to: "/about", href: undefined, label: "About us" },
+  { to: "/faq", href: undefined, label: "FAQs" },
+  { to: "/contact", href: undefined, label: "Contact" },
+  {
+    href: "https://buytickets.at/breathethewildtheatrecompany/2215560",
+    to: undefined,
+    label: "Book now",
+  },
+];
 
 export const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,6 +43,13 @@ export const NavBar = () => {
     return () => window.removeEventListener("pointerdown", handlePointerDown);
   }, [isOpen]);
 
+  const itemClass = css({
+    textStyle: "body",
+    color: "accent.candlelight",
+    textDecoration: "none",
+    outline: "none",
+  });
+
   return (
     <nav
       ref={navRef}
@@ -33,7 +58,7 @@ export const NavBar = () => {
         position: "fixed",
         top: "max(1rem, env(safe-area-inset-top))",
         right: "max(1rem, env(safe-area-inset-right))",
-        zIndex: 50,
+        zIndex: 4,
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-end",
@@ -51,27 +76,29 @@ export const NavBar = () => {
             gap: "0.5rem",
           })}
         >
-          {navItems.map((item) => (
-            <Link
-              key={item.to}
-              to={item.to}
-              onClick={() => setIsOpen(false)}
-              className={css({
-                textStyle: "body",
-                color: "accent.candlelight",
-                textDecoration: "none",
-                outline: "none",
-              })}
-              activeProps={{
-                className: css({
-                  color: "accent.candlelight",
-                  textDecoration: "underline",
-                }),
-              }}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {navItems.map((item) =>
+            item.to ? (
+              <Link
+                key={item.to}
+                to={item.to}
+                href={item.href}
+                onClick={() => setIsOpen(false)}
+                className={itemClass}
+                activeProps={{
+                  className: css({
+                    color: "accent.candlelight",
+                    textDecoration: "underline",
+                  }),
+                }}
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <a href={item.href} target="_blank" rel="noopener noreferrer" className={itemClass}>
+                {item.label}
+              </a>
+            ),
+          )}
         </div>
       ) : (
         <button

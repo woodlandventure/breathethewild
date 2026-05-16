@@ -5,8 +5,8 @@ export const Card = ({ text }: { text: string }) => {
   return (
     <ScallopedCorners
       className={css({
-        width: "20rem",
-        height: "20rem",
+        width: "15rem",
+        height: "15rem",
       })}
       contentClassName={css({
         color: "primary.oakBarkBrown",
@@ -14,7 +14,7 @@ export const Card = ({ text }: { text: string }) => {
         justifyContent: "center",
         alignItems: "center",
         textAlign: "center",
-        fontSize: "2.5rem",
+        fontSize: "2rem",
         padding: "1rem",
       })}
     >

@@ -36,14 +36,14 @@ function App() {
       <SnapSection showScrollIndicator={false} color="blackberry" containInnerScroll>
         <CardGrid />
       </SnapSection>
-      <ContentSection title="Launching Summer 2026" gap="1.5rem">
+      <ContentSection title="Early Bird Tickets Available" gap="1.5rem">
         <p
           className={css({
             textStyle: "highlight",
             margin: 0,
           })}
         >
-          20th to 24th July | 10am - 4pm
+          20th to 24th July 2026 | 10am - 4pm
         </p>
         <h2
           className={css({
@@ -51,7 +51,7 @@ function App() {
             margin: 0,
           })}
         >
-          25 places remaining
+          25 remaining
         </h2>
         <BookNow color="blackberry" />
       </ContentSection>

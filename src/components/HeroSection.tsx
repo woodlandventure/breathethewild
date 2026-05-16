@@ -1,7 +1,7 @@
 import { css } from "../../styled-system/css";
 import BackgroundImage from "../assets/breathe-background-small.jpg";
-import { BookNow } from "./BookNow";
 import { ScrollDownIndicator } from "./ScrollDownIndicator";
+import LogoImage from "../assets/LogoGlowNoTheater.png";
 
 export const HeroSection = () => {
   return (
@@ -32,7 +32,11 @@ export const HeroSection = () => {
           textStyle: "brand",
         })}
       >
-        Breathe The Wild
+        <img
+          className={css({ width: { base: "6rem", md: "10rem" }, height: "auto" })}
+          src={LogoImage}
+          alt="Breathe The Wild"
+        />
       </div>
       <img
         src={BackgroundImage}
@@ -86,7 +90,15 @@ export const HeroSection = () => {
         >
           The Forest History Mystery
         </div>
-        <BookNow color="light" />
+
+        <div
+          className={css({
+            textStyle: "subheading",
+            mb: "4rem",
+          })}
+        >
+          Secrets ⋅ Survival ⋅ Storytelling ⋅ Suspicion
+        </div>
       </div>
       <ScrollDownIndicator />
     </section>
