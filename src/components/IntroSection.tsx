@@ -44,10 +44,22 @@ export const IntroSection = () => {
           fontSize: "1.5rem",
           maxWidth: "48rem",
           mx: "1rem",
+          mb: "2rem",
         })}
       >
-        The Forest History Mystery is an immersive week-long adventure where players journey back in
-        time to the year 1601
+        The Forest History Mystery is an immersive week-long adventure recommended for young people
+        aged 10-15.
+      </div>
+      <div
+        className={css({
+          textAlign: "center",
+          textStyle: "body",
+          fontSize: "1.5rem",
+          maxWidth: "48rem",
+          mx: "1rem",
+        })}
+      >
+        Journey back in time to the year 1601, but tread carefully; not everyone is who they seem...
       </div>
       <button
         type="button"
