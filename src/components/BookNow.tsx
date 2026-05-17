@@ -18,7 +18,7 @@ export const BookNow = ({ color = "blackberry" }: { color: "blackberry" | "light
         translateY: "-2px",
       }}
     >
-      Book your place →
+      Book now →
     </motion.a>
   );
 };

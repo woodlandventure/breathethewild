@@ -39,6 +39,8 @@ function App() {
     };
   }, [setHomeFinalInView]);
 
+  const isBeforeEarlyBirdDeadline = new Date() < new Date("2026-06-01");
+
   return (
     <div
       ref={scrollContainerRef}
@@ -120,22 +122,43 @@ function App() {
           flexShrink: 0,
         })}
       >
-        <ContentSection title="Early Bird Tickets Available" gap="1.5rem">
+        <ContentSection
+          title={isBeforeEarlyBirdDeadline ? "Early Bird Tickets Available" : "Tickets Available"}
+          gap="1.5rem"
+        >
           <p
             className={css({
               textStyle: "highlight",
               margin: 0,
             })}
           >
-            20th to 24th July 2026 | 10am - 4pm
+            20th-24th and 24th-28th July 2026 | 10am - 4pm
           </p>
+          <p
+            className={css({
+              fontSize: "1.5rem",
+              margin: 0,
+            })}
+          >
+            £400 for a full week of immersive woodland adventure
+          </p>
+          {isBeforeEarlyBirdDeadline ? (
+            <p
+              className={css({
+                fontSize: "1.5rem",
+                margin: 0,
+              })}
+            >
+              Early bird tickets available for £350 until 1st June
+            </p>
+          ) : null}
           <h2
             className={css({
               textStyle: "subheading",
               margin: 0,
             })}
           >
-            25 remaining
+            Only 25 places available
           </h2>
           <BookNow color="blackberry" />
         </ContentSection>
