@@ -1,5 +1,6 @@
 # Breathe The Wilde
 
+
 A modern React application with PandaCSS styling, featuring a beautiful holding page with image gallery.
 
 ## 🚀 Features
