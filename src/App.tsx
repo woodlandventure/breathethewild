@@ -132,7 +132,7 @@ function App() {
               margin: 0,
             })}
           >
-            20th-24th and 24th-28th July 2026 | 10am - 4pm
+            20th-24th July and 24th-28th Aug 2026 | 10am - 4pm
           </p>
           <p
             className={css({
@@ -149,7 +149,7 @@ function App() {
                 margin: 0,
               })}
             >
-              Early bird tickets available for £350 until 1st June
+              Early bird tickets available for £350 until 14th June
             </p>
           ) : null}
           <h2
