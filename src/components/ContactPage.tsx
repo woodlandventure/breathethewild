@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { css } from "../../styled-system/css";
 import Logo from "../assets/Logo Glow Only.png";
 
-const contactEmail = "diana@breathethewild.co.uk";
+const contactEmail = "info@breathethewild.co.uk";
 
 export const ContactPage = () => {
   return (
