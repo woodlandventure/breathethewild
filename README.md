@@ -61,6 +61,8 @@ A modern React application with PandaCSS styling, featuring a beautiful holding 
 
 This project is configured for automatic deployment to GitHub Pages via GitHub Actions.
 
+Client-side navigation is published using query-parameter URLs so direct links and refreshes keep working on GitHub Pages without server-side rewrites.
+
 ### Manual Setup
 
 1. **Enable GitHub Pages** in your repository settings
