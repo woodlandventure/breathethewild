@@ -5,6 +5,7 @@ import { ContactPage } from "./components/ContactPage";
 import { FaqPage } from "./components/FaqPage";
 import { NavBar } from "./components/NavBar";
 import { PalettePage } from "./components/PalettePage";
+import { queryParamHistory } from "./queryParamHistory";
 
 const rootRoute = createRootRoute({
   component: () => (
@@ -49,7 +50,7 @@ const routeTree = rootRoute.addChildren([homeRoute, paletteRoute, aboutRoute, fa
 
 export const router = createRouter({
   routeTree,
-  basepath: import.meta.env.DEV ? "/breathethewilde.com" : "/",
+  history: queryParamHistory,
 });
 
 declare module "@tanstack/react-router" {
