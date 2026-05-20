@@ -133,6 +133,5 @@ const aboutPortraitPhotoClass = css({
   height: "auto",
   aspectRatio: "3 / 4",
   objectFit: "cover",
-  borderRadius: "md",
-  boxShadow: "md",
+  border: "4px solid black",
 });

@@ -4,10 +4,11 @@ import { Card } from "./Card";
 import { ScrollDownIndicator } from "./ScrollDownIndicator";
 
 const cardTexts = [
-  "Grow confidence and independence",
-  "Form powerful connections",
-  "Build real-time characters",
-  "Solve mysteries from 1601",
+  "Immerse yourself in the forest",
+  "Learn 17th century survival skills",
+  "Work with like-minded peasants",
+  "Develop a unique Elizabethan character",
+  "Unpick a medieval mystery",
 ] as const;
 
 export const CardGrid = () => {
@@ -36,9 +37,17 @@ export const CardGrid = () => {
           my: "2rem",
         })}
       >
-        {cardTexts.map((text) => (
+        {cardTexts.map((text, index) => (
           <motion.div
             key={text}
+            className={css({
+              ...(index === cardTexts.length - 1
+                ? {
+                    gridColumn: { md: "1 / -1" },
+                    justifySelf: "center",
+                  }
+                : {}),
+            })}
             variants={{
               hidden: { opacity: 0, y: 24 },
               visible: { opacity: 1, y: 0 },
