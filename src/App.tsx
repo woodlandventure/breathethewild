@@ -39,7 +39,7 @@ function App() {
     };
   }, [setHomeFinalInView]);
 
-  const isBeforeEarlyBirdDeadline = new Date() < new Date("2026-06-01");
+  const isBeforeEarlyBirdDeadline = new Date() < new Date("2026-06-15");
 
   return (
     <div
