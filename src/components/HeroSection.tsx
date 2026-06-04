@@ -1,5 +1,6 @@
 import { css } from "../../styled-system/css";
 import BackgroundImage from "../assets/breathe-background-small.jpg";
+import FacebookImage from "../assets/Facebook.png";
 import InstagramImage from "../assets/Instagram.png";
 import { ScrollDownIndicator } from "./ScrollDownIndicator";
 import LogoImage from "../assets/LogoGlowNoTheater.png";
@@ -101,28 +102,58 @@ export const HeroSection = () => {
           Secrets ⋅ Survival ⋅ Storytelling ⋅ Suspicion
         </div>
 
-        <a
-          href="https://www.instagram.com/breathe_the_wild_theatre/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Follow us on Instagram"
+        <div
           className={css({
-            display: "inline-flex",
-            transition: "transform 0.2s ease",
-            _hover: {
-              transform: "translateY(-2px)",
-            },
+            display: "flex",
+            gap: "1rem",
+            alignItems: "center",
           })}
         >
-          <img
-            src={InstagramImage}
-            alt=""
+          <a
+            href="https://www.facebook.com/breathethewilduk"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Follow us on Facebook"
             className={css({
-              width: "2.5rem",
-              height: "auto",
+              display: "inline-flex",
+              transition: "transform 0.2s ease",
+              _hover: {
+                transform: "translateY(-2px)",
+              },
             })}
-          />
-        </a>
+          >
+            <img
+              src={FacebookImage}
+              alt=""
+              className={css({
+                width: "2.5rem",
+                height: "auto",
+              })}
+            />
+          </a>
+          <a
+            href="https://www.instagram.com/breathe_the_wild_theatre/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Follow us on Instagram"
+            className={css({
+              display: "inline-flex",
+              transition: "transform 0.2s ease",
+              _hover: {
+                transform: "translateY(-2px)",
+              },
+            })}
+          >
+            <img
+              src={InstagramImage}
+              alt=""
+              className={css({
+                width: "2.5rem",
+                height: "auto",
+              })}
+            />
+          </a>
+        </div>
       </div>
       <ScrollDownIndicator />
     </section>
