@@ -1,5 +1,6 @@
 import { css } from "../../styled-system/css";
 import BackgroundImage from "../assets/breathe-background-small.jpg";
+import InstagramImage from "../assets/Instagram.png";
 import { ScrollDownIndicator } from "./ScrollDownIndicator";
 import LogoImage from "../assets/LogoGlowNoTheater.png";
 
@@ -94,11 +95,34 @@ export const HeroSection = () => {
         <div
           className={css({
             textStyle: "subheading",
-            mb: "4rem",
+            mb: "2rem",
           })}
         >
           Secrets ⋅ Survival ⋅ Storytelling ⋅ Suspicion
         </div>
+
+        <a
+          href="https://www.instagram.com/breathe_the_wild_theatre/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Follow us on Instagram"
+          className={css({
+            display: "inline-flex",
+            transition: "transform 0.2s ease",
+            _hover: {
+              transform: "translateY(-2px)",
+            },
+          })}
+        >
+          <img
+            src={InstagramImage}
+            alt=""
+            className={css({
+              width: "2.5rem",
+              height: "auto",
+            })}
+          />
+        </a>
       </div>
       <ScrollDownIndicator />
     </section>
