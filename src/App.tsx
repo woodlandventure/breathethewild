@@ -39,7 +39,7 @@ function App() {
     };
   }, [setHomeFinalInView]);
 
-  const isBeforeEarlyBirdDeadline = new Date() < new Date("2026-06-15");
+  const isBeforeEarlyBirdDeadline = new Date() < new Date("2026-06-22");
 
   return (
     <div
@@ -149,7 +149,7 @@ function App() {
                 margin: 0,
               })}
             >
-              Early bird tickets available for £350 until 14th June
+              Early bird tickets available for £350 until 21st June
             </p>
           ) : null}
           <h2
