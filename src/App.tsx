@@ -132,7 +132,7 @@ function App() {
               margin: 0,
             })}
           >
-            20th-24th July and 24th-28th Aug 2026 | 10am - 4pm
+            24th-28th August 2026 | 10am - 4pm
           </p>
           <p
             className={css({
