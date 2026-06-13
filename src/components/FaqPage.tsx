@@ -3,7 +3,7 @@ import { css } from "../../styled-system/css";
 const faqs: { q: string; a: React.ReactNode }[] = [
   {
     q: "When and where does it take place?",
-    a: "The Forest History Mystery will take place 20th-24th July and 24th-28th Aug 2026 in an ancient oak woodland in Langton Green.",
+    a: "The Forest History Mystery will take place 24th-28th August 2026 in an ancient oak woodland in Langton Green.",
   },
   {
     q: "Who is it for?",
