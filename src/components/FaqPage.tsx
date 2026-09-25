@@ -3,11 +3,11 @@ import { css } from "../../styled-system/css";
 const faqs: { q: string; a: React.ReactNode }[] = [
   {
     q: "When and where does it take place?",
-    a: "The Forest History Mystery will take place 20th-24th July and 24th-28th Aug 2026 in an ancient oak woodland in Langton Green.",
+    a: "The Forest History Mystery will be taking bookings from March 2027 although we can be flexible provided the weather looks good. They will be running it from Wednesday to Saturday in ancient oak woodland in Langton Green.",
   },
   {
     q: "Who is it for?",
-    a: "We recommend this experience for young people aged 10-15, though we will happily accomodate younger or older participants.",
+    a: "We recommend this experience for corporate groups or friendship groups of around 10-40 people aged 10 and over. That said, we are nothing if not flexible.",
   },
   {
     q: "What should participants bring?",
@@ -17,18 +17,14 @@ const faqs: { q: string; a: React.ReactNode }[] = [
     q: "How do I book?",
     a: (
       <div>
-        Book now using{" "}
-        <a
+        Get in touch at <a className={css({
+          color: "accent.candlelight",
+          textDecoration: "underline",
+        })}
           target="_blank"
           rel="noopener noreferrer"
-          href="https://buytickets.at/breathethewildtheatrecompany/2215560"
-          className={css({
-            color: "accent.candlelight",
-            textDecoration: "underline",
-          })}
-        >
-          this link.
-        </a>
+          href="mailto:info@breathethewild.co.uk">info@breathethewild.co.uk</a> to curate your bespoke experience
+
       </div>
     ),
   },

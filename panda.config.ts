@@ -5,14 +5,14 @@ const textStyles = defineTextStyles({
   heading: {
     description: "Hero heading",
     value: {
-      fontSize: { base: "2.25rem", md: "3.5rem", lg: "5rem" },
+      fontSize: { base: "2.5rem", md: "3.5rem", lg: "5rem" },
       lineHeight: "1",
     },
   },
   subheading: {
     description: "Hero subheading",
     value: {
-      fontSize: { base: "1.25rem", md: "2rem", lg: "2.5rem" },
+      fontSize: { base: "1.75rem", md: "2rem", lg: "2.5rem" },
       lineHeight: "1.2",
     },
   },
@@ -26,7 +26,7 @@ const textStyles = defineTextStyles({
   body: {
     description: "Main page body copy",
     value: {
-      fontSize: { base: "1rem", md: "1.125rem", lg: "1.25rem" },
+      fontSize: { base: "1rem", md: "1rem", lg: "1.25rem" },
       lineHeight: "1.5",
     },
   },
@@ -48,6 +48,15 @@ export default defineConfig({
     extend: {
       tokens: {
         colors: {
+          woodland: {
+            nightInk: { value: colorTheme.colors.woodland.nightInk },
+            pineShadow: { value: colorTheme.colors.woodland.pineShadow },
+            lichen: { value: colorTheme.colors.woodland.lichen },
+            oakBark: { value: colorTheme.colors.woodland.oakBark },
+            ochre: { value: colorTheme.colors.woodland.ochre },
+            straw: { value: colorTheme.colors.woodland.straw },
+            linen: { value: colorTheme.colors.woodland.linen },
+          },
           primary: {
             deepForestGreen: { value: colorTheme.colors.primary.deepForestGreen },
             mossGreen: { value: colorTheme.colors.primary.mossGreen },

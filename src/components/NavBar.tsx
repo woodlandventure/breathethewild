@@ -20,11 +20,6 @@ const navItems: NavItem[] = [
   { to: "/about", href: undefined, label: "About us" },
   { to: "/faq", href: undefined, label: "FAQs" },
   { to: "/contact", href: undefined, label: "Contact" },
-  {
-    href: "https://buytickets.at/breathethewildtheatrecompany/2215560",
-    to: undefined,
-    label: "Book now",
-  },
 ];
 
 export const NavBar = () => {

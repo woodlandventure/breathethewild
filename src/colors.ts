@@ -1,5 +1,15 @@
 export const colorTheme = {
   colors: {
+    woodland: {
+      nightInk: "#0A0A08",
+      pineShadow: "#25352A",
+      lichen: "#828D60",
+      oakBark: "#89674A",
+      ochre: "#D1A156",
+      straw: "#EED897",
+      linen: "#E8E2D2",
+    },
+
     primary: {
       deepForestGreen: "#1E3427",
       mossGreen: "#556B4F",

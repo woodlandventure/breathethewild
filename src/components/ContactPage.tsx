@@ -42,9 +42,7 @@ export const ContactPage = () => {
           Contact
         </h1>
         <p className={paragraphClass}>
-          Diana and Dan, the organisers, have over 50 years of teaching experience and both hold up
-          to date DBS and Paediatric First Aid certificates. Diana is an experienced Safeguarding
-          Lead - level 3 DSL and Dan is an experienced and qualified Forest School Leader.
+          Breathe the Wild was created by Diana Gillinder. She imagined and designed its story and experience, while Dan Gillinder has contributed the practical woodland skills that help bring the vision to life.
         </p>{" "}
         <p className={paragraphClass}>
           Read more about Diana and Dan{" "}

@@ -5,12 +5,14 @@ import { ScrollDownIndicator } from "./ScrollDownIndicator";
 export const SnapSection = ({
   children,
   showScrollIndicator = true,
+  scrollIndicatorTone = "light",
   color = "blackberry",
   containInnerScroll = false,
 }: {
   children: ReactNode;
   showScrollIndicator?: boolean;
-  color: "blackberry" | "forestDark" | "firelight";
+  scrollIndicatorTone?: "light" | "dark";
+  color: "blackberry" | "forestDark" | "firelight" | "pineShadow";
   containInnerScroll?: boolean;
 }) => {
   if (containInnerScroll) {
@@ -32,7 +34,9 @@ export const SnapSection = ({
               ? "secondary.blackberry"
               : color === "forestDark"
                 ? "primary.deepForestGreen"
-                : "primary.firelightAmber",
+                : color === "pineShadow"
+                  ? "woodland.pineShadow"
+                  : "primary.firelightAmber",
         })}
       >
         {/* Absolute scrollport: WebKit often mishandles nested overflow-y inside flex + scroll-snap parents */}
@@ -59,7 +63,7 @@ export const SnapSection = ({
             {children}
           </div>
         </div>
-        {showScrollIndicator && <ScrollDownIndicator />}
+        {showScrollIndicator && <ScrollDownIndicator tone={scrollIndicatorTone} />}
       </section>
     );
   }
@@ -83,11 +87,13 @@ export const SnapSection = ({
             ? "secondary.blackberry"
             : color === "forestDark"
               ? "primary.deepForestGreen"
-              : "primary.firelightAmber",
+              : color === "pineShadow"
+                ? "woodland.pineShadow"
+                : "primary.firelightAmber",
       })}
     >
       {children}
-      {showScrollIndicator && <ScrollDownIndicator />}
+      {showScrollIndicator && <ScrollDownIndicator tone={scrollIndicatorTone} />}
     </section>
   );
 };
