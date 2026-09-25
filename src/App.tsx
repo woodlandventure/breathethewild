@@ -2,12 +2,11 @@ import "./index.css";
 import { css } from "../styled-system/css";
 import { useEffect, useRef } from "react";
 import { useNavHomeFinalSection } from "./context/NavHomeFinalSectionContext";
-import { CardGrid } from "./components/CardGrid";
 import { ContentSection } from "./components/ContentSection";
 import { HeroSection } from "./components/HeroSection";
 import { IntroSection } from "./components/IntroSection";
 import { SnapSection } from "./components/SnapSection";
-import { BookNow } from "./components/BookNow";
+import { TestimonialCarousel } from "./components/TestimonialCarousel";
 import { Link } from "@tanstack/react-router";
 import { DianaImage, DanImage } from "./components/AboutPage";
 
@@ -39,7 +38,6 @@ function App() {
     };
   }, [setHomeFinalInView]);
 
-  const isBeforeEarlyBirdDeadline = new Date() < new Date("2026-06-15");
 
   return (
     <div
@@ -63,9 +61,7 @@ function App() {
     >
       <HeroSection />
       <IntroSection />
-      <SnapSection showScrollIndicator={false} color="blackberry" containInnerScroll>
-        <CardGrid />
-      </SnapSection>
+      <TestimonialCarousel />
       <SnapSection showScrollIndicator={false} color="forestDark" containInnerScroll>
         <div
           className={css({
@@ -94,9 +90,7 @@ function App() {
             <DianaImage />
             <DanImage />
           </div>
-          Together, Diana and Dan have over 50 years of teaching experience. Diana is an experienced
-          Safeguarding Lead - level 3 DSL and Dan is an experienced and qualified Forest School
-          Leader.
+          Breathe the Wild was created by Diana Gillinder. She imagined and designed its story and experience, while Dan Gillinder has contributed the practical woodland skills that help bring the vision to life.
           <Link
             to="/about"
             className={css({
@@ -123,7 +117,7 @@ function App() {
         })}
       >
         <ContentSection
-          title={isBeforeEarlyBirdDeadline ? "Early Bird Tickets Available" : "Tickets Available"}
+          title={"Book now"}
           gap="1.5rem"
         >
           <p
@@ -132,35 +126,22 @@ function App() {
               margin: 0,
             })}
           >
-            20th-24th July and 24th-28th Aug 2026 | 10am - 4pm
+            The Forest History Mystery will be taking bookings from March 2027
           </p>
           <p
             className={css({
-              fontSize: "1.5rem",
+              textStyle: "body",
               margin: 0,
             })}
           >
-            £400 for a full week of immersive woodland adventure
+            Get in touch at <a className={css({
+              textDecoration: "underline",
+            })}
+              target="_blank"
+              rel="noopener noreferrer"
+              href="mailto:info@breathethewild.co.uk">info@breathethewild.co.uk</a> to curate your bespoke experience
+
           </p>
-          {isBeforeEarlyBirdDeadline ? (
-            <p
-              className={css({
-                fontSize: "1.5rem",
-                margin: 0,
-              })}
-            >
-              Early bird tickets available for £350 until 14th June
-            </p>
-          ) : null}
-          <h2
-            className={css({
-              textStyle: "subheading",
-              margin: 0,
-            })}
-          >
-            Only 25 places available
-          </h2>
-          <BookNow color="blackberry" />
         </ContentSection>
       </div>
     </div>

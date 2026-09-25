@@ -1,13 +1,34 @@
+import { useRef } from "react";
+import { motion } from "framer-motion";
 import { css } from "../../styled-system/css";
-import BackgroundImage from "../assets/breathe-background-small.jpg";
+import BackgroundImage from "../assets/hero-market-table.jpg";
 import FacebookImage from "../assets/Facebook.png";
 import InstagramImage from "../assets/Instagram.png";
-import { ScrollDownIndicator } from "./ScrollDownIndicator";
 import LogoImage from "../assets/LogoGlowNoTheater.png";
 
+const socialLinkStyles = css({
+  display: "inline-flex",
+  transition: "transform 0.2s ease",
+  _hover: {
+    transform: "translateY(-2px)",
+  },
+});
+
+const socialIconStyles = css({
+  width: "2.5rem",
+  height: "auto",
+});
+
 export const HeroSection = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  const scrollToNextSection = () => {
+    sectionRef.current?.nextElementSibling?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <section
+      ref={sectionRef}
       className={css({
         minHeight: "100dvh",
         height: "100dvh",
@@ -22,6 +43,7 @@ export const HeroSection = () => {
         overflow: "hidden",
         scrollSnapAlign: "start",
         scrollSnapStop: "always",
+        backgroundColor: "woodland.nightInk",
       })}
     >
       <div
@@ -30,8 +52,6 @@ export const HeroSection = () => {
           top: "max(1.5rem, env(safe-area-inset-top))",
           left: "max(1.5rem, env(safe-area-inset-left))",
           zIndex: 3,
-          color: "accent.candlelight",
-          textStyle: "brand",
         })}
       >
         <img
@@ -42,26 +62,31 @@ export const HeroSection = () => {
       </div>
       <img
         src={BackgroundImage}
-        alt="Background"
+        alt="Players in costume laughing together on a bench in the woods"
         className={css({
           position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
+          // Phones: the image is 140% of the screen height and pulled up, so the faces sit between the logo and the title.
+          // Wider screens: the box extends past the top and left edges, cropping roughly 20% off the top and shifting the photo well to the left
+          top: { base: "-40%", md: "-25%" },
+          left: { base: 0, md: "-31.11%" },
+          width: { base: "100%", md: "131.11%" },
+          maxWidth: "none",
+          height: { base: "140%", md: "125%" },
           objectFit: "cover",
+          // Phones centre the crop on the two laughing women. Wider screens mirror the photo so they sit in the left half, clear of the text;
+          // "right" before mirroring anchors the visible left edge, so narrower split screens crop from the right
+          objectPosition: { base: "65% center", md: "85% top" },
+          transform: { md: "scaleX(-1)" },
           zIndex: 0,
         })}
       />
       <div
         className={css({
           position: "absolute",
-          top: 0,
-          left: 0,
+          inset: 0,
           zIndex: 1,
-          width: "100%",
-          height: "100%",
-          backgroundColor: "rgba(0, 0, 0, 0.5)",
+          background:
+            "linear-gradient(180deg, rgba(10, 10, 8, 0.3) 0%, rgba(10, 10, 8, 0.4) 45%, rgba(37, 53, 42, 0.4) 100%)",
         })}
       />
       <div
@@ -78,35 +103,82 @@ export const HeroSection = () => {
           justifyContent: "center",
           alignItems: "center",
           width: { base: "100%", md: "50%" },
-          height: "100%",
-          color: "accent.candlelight",
+          boxSizing: "border-box",
+          px: "1.5rem",
+          color: "woodland.straw",
           textAlign: "center",
-          mx: "1rem",
+          textShadow: "0 2px 12px rgba(10, 10, 8, 0.6)",
         })}
       >
-        <div
+        <h1
           className={css({
             textStyle: "heading",
-            mb: "4rem",
+            color: "woodland.straw",
+            margin: 0,
+            mb: "1.5rem",
           })}
         >
           The Forest History Mystery
-        </div>
+        </h1>
 
-        <div
+        <p
           className={css({
             textStyle: "subheading",
+            color: "woodland.straw",
+            margin: 0,
             mb: "2rem",
           })}
         >
-          Secrets ⋅ Survival ⋅ Storytelling ⋅ Suspicion
-        </div>
+          An Immersive Adventure
+        </p>
+
+        <p
+          className={css({
+            textStyle: "highlight",
+            color: "woodland.straw",
+            margin: 0,
+            mb: "0.75rem",
+            maxWidth: "36rem",
+          })}
+        >
+          Reflect. Reconnect. Reset. We bring colleagues and friends together for unique personalised
+        </p>
+
+        <motion.button
+          type="button"
+          onClick={scrollToNextSection}
+          whileHover={{ translateY: "-2px" }}
+          className={css({
+            textStyle: "highlight",
+            fontFamily: "inherit",
+            color: "woodland.nightInk",
+            backgroundColor: "woodland.straw",
+            border: "2px solid",
+            borderColor: "woodland.straw",
+            textShadow: "none",
+            px: "1.75rem",
+            py: "0.875rem",
+            cursor: "pointer",
+            transition: "background-color 0.2s ease",
+            _hover: {
+              backgroundColor: "woodland.linen",
+            },
+            _focusVisible: {
+              outline: "3px solid",
+              outlineColor: "woodland.straw",
+              outlineOffset: "3px",
+            },
+          })}
+        >
+          Explore the mystery ↓
+        </motion.button>
 
         <div
           className={css({
             display: "flex",
             gap: "1rem",
             alignItems: "center",
+            mt: "2.5rem",
           })}
         >
           <a
@@ -114,48 +186,21 @@ export const HeroSection = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Follow us on Facebook"
-            className={css({
-              display: "inline-flex",
-              transition: "transform 0.2s ease",
-              _hover: {
-                transform: "translateY(-2px)",
-              },
-            })}
+            className={socialLinkStyles}
           >
-            <img
-              src={FacebookImage}
-              alt=""
-              className={css({
-                width: "2.5rem",
-                height: "auto",
-              })}
-            />
+            <img src={FacebookImage} alt="" className={socialIconStyles} />
           </a>
           <a
             href="https://www.instagram.com/breathe_the_wild_theatre/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Follow us on Instagram"
-            className={css({
-              display: "inline-flex",
-              transition: "transform 0.2s ease",
-              _hover: {
-                transform: "translateY(-2px)",
-              },
-            })}
+            className={socialLinkStyles}
           >
-            <img
-              src={InstagramImage}
-              alt=""
-              className={css({
-                width: "2.5rem",
-                height: "auto",
-              })}
-            />
+            <img src={InstagramImage} alt="" className={socialIconStyles} />
           </a>
         </div>
       </div>
-      <ScrollDownIndicator />
     </section>
   );
 };

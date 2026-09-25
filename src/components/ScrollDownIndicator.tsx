@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { css } from "../../styled-system/css";
 
-export const ScrollDownIndicator = () => {
+export const ScrollDownIndicator = ({ tone = "light" }: { tone?: "light" | "dark" }) => {
   return (
     <div
       aria-hidden="true"
@@ -10,7 +10,7 @@ export const ScrollDownIndicator = () => {
         bottom: "max(1rem, env(safe-area-inset-bottom))",
         left: "50%",
         transform: "translateX(-50%)",
-        color: "accent.candlelight",
+        color: tone === "dark" ? "woodland.nightInk" : "accent.candlelight",
         textStyle: "highlight",
         textAlign: "center",
         zIndex: 5,

@@ -1,215 +1,267 @@
-import { motion } from "framer-motion";
-import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { useId, useState } from "react";
 import { css } from "../../styled-system/css";
-import CrossIcon from "../assets/cross.png";
-import { ScallopedCorners } from "./ScallopedCorners";
+import TreelineImage from "../assets/image-from-rawpixel-id-6267061-png.png";
 import { SnapSection } from "./SnapSection";
 
-const readMoreParagraphs = [
-  "Hidden within the ancient oak woodland of Langton Green lies a living world of secrets, survival, storytelling and suspicion.",
-  "The Forest History Mystery is an immersive week-long adventure where players journey back in time to the year 1601.",
-  "During the first two days of the experience, players will take part in woodland workshops, campfire gatherings, games, music and team challenges, as they build their unique characters and learn the skills, values and traditions of the past.",
-  "As the week unfolds, the woodland transforms and the players step into a fully interactive woodland mystery becoming part of living communities. The wood will buzz with the crafts and trades of minstrels, herbalists, smugglers, wanderers and secret keepers, each with their own loyalties, hidden motives and dangerous truths.",
-  "Participants will trade, negotiate, solve challenges and work together, forming alliances and rivalries as they explore the relationships between people, nature and survival.",
-  "But not everyone is who they seem.",
-  "Some players are protecting secrets.",
-  "Some have dangerous allegiances.",
-  "Some may betray to protect themselves.",
-  "And somewhere within the forest lies the truth behind a growing mystery...",
-  "Trust carefully.",
-  "Choose allies wisely.",
-  "Tread lightly beneath the trees.",
-] as const;
+type StorySection = {
+  title: string;
+  paragraphs: string[];
+  paths?: { name: string; description: string }[];
+};
 
-export const IntroSection = () => {
-  const [isReadMoreOpen, setIsReadMoreOpen] = useState(false);
+const storySections: StorySection[] = [
+  {
+    title: "How it works",
+    paragraphs: [
+      "You arrive in a beautiful forest glade where the fire circle, the welcoming kettle and a day of promise await.",
+      "After a few explanations and expectations (needs must) you are wandering thoughtfully through the woods and choosing a character bag from the trees. The bag contains all you need to take on your new (or really rather old) persona and begin a woodland trade with secrets and suspicions already percolating along with the herbalist’s tea.",
+      "It is a game so not every player is who they claim to be. However, the more you and your fellow villagers achieve, the more you’ll be rewarded with clues to identify the wayward amongst you.",
+    ],
+  },
+  {
+    title: "Enter the story",
+    paragraphs: [
+      "In the starving winter of 1438, a raid on Ashbrook’s tithe barn ended in flames and three innocent deaths. From its ashes rose the Hollow Crown, a secret circle promising the protection they had so desperately needed.",
+      "It’s now 1601, and that promise has hardened into control; our woodland village lives in its shadow. Slaughtered animals are appearing at the edge of the wood, and the Hollow Crown has begun to look our way.",
+      "Take your place in the market, mind what you say and choose carefully whom you trust—the Hollow Crown may already be among you.",
+    ],
+  },
+  {
+    title: "More than a game",
+    paragraphs: [
+      "Stepping into a magically different world gives a great opportunity for reflection, reconnection and resetting; solving the murder is not the only way to success. Here in the Breathe the Wild woods there are five paths.",
+    ],
+    paths: [
+      { name: "Connection", description: "meet, listen and collaborate" },
+      { name: "Curiosity", description: "explore, question and notice" },
+      { name: "Contribution", description: "leave something of yourself in the village" },
+      { name: "Commerce", description: "trade, negotiate and discover your value" },
+      { name: "Contemplation", description: "notice what the experience reveals about you" },
+    ],
+  },
+  {
+    title: "Shaped around you",
+    paragraphs: [
+      "For workplace teams, school staff and friends marking an occasion, we tailor the experience to the people who come.",
+    ],
+  },
+];
+
+const bodyTextStyles = css({
+  textStyle: "body",
+  fontSize: { base: "1.125rem", md: "1.25rem" },
+  margin: 0,
+});
+
+const StoryToggle = ({
+  section,
+  isOpen,
+  onToggle,
+}: {
+  section: StorySection;
+  isOpen: boolean;
+  onToggle: () => void;
+}) => {
+  const panelId = useId();
 
   return (
-    <SnapSection color="forestDark">
-      <div
-        className={css({
-          textAlign: "center",
-          textStyle: "subheading",
-          fontSize: "3rem",
-          margin: "2rem",
-          color: "accent.candlelight",
-        })}
-      >
-        An experience like no other
-      </div>
-      <div
-        className={css({
-          textAlign: "center",
-          textStyle: "body",
-          fontSize: "1.5rem",
-          maxWidth: "48rem",
-          mx: "1rem",
-          mb: "2rem",
-        })}
-      >
-        The Forest History Mystery is an immersive week-long adventure recommended for young people
-        aged 10-15.
-      </div>
-      <div
-        className={css({
-          textAlign: "center",
-          textStyle: "body",
-          fontSize: "1.5rem",
-          maxWidth: "48rem",
-          mx: "1rem",
-        })}
-      >
-        Journey back in time to the year 1601, but tread carefully; not everyone is who they seem...
-      </div>
-      <button
-        type="button"
-        onClick={() => setIsReadMoreOpen(true)}
-        className={css({
-          mt: "2rem",
-          textStyle: "highlight",
-          color: "black",
-          backgroundColor: "accent.candlelight",
-          border: "none",
-          cursor: "pointer",
-          px: "1.5rem",
-          py: "0.75rem",
-          borderColor: "black",
-          borderRadius: "1px",
-          borderStyle: "solid",
-        })}
-      >
-        What's the mystery? →
-      </button>
-      {isReadMoreOpen && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="read-more-title"
+    <div
+      className={css({
+        borderTop: "1px solid",
+        borderColor: "woodland.lichen",
+      })}
+    >
+      <h3 className={css({ margin: 0 })}>
+        <button
+          type="button"
+          aria-expanded={isOpen}
+          aria-controls={panelId}
+          onClick={onToggle}
           className={css({
-            position: "fixed",
-            inset: 0,
-            zIndex: 20,
+            width: "100%",
             display: "flex",
-            justifyContent: "center",
+            justifyContent: "space-between",
             alignItems: "center",
-            backgroundColor: "rgba(0, 0, 0, 0.30)",
-            p: "1rem",
+            gap: "1rem",
+            py: "1.25rem",
+            px: 0,
+            fontFamily: "inherit",
+            textStyle: "subheading",
+            fontSize: { base: "1.375rem", md: "1.75rem" },
+            letterSpacing: "0.08em",
+            textTransform: "uppercase",
+            textAlign: "left",
+            color: "woodland.straw",
+            backgroundColor: "transparent",
+            border: "none",
+            cursor: "pointer",
+            _focusVisible: {
+              outline: "2px solid",
+              outlineColor: "woodland.straw",
+              outlineOffset: "4px",
+            },
           })}
-          onClick={() => setIsReadMoreOpen(false)}
         >
-          <div
-            onClick={(e) => e.stopPropagation()}
+          {section.title}
+          <span
+            aria-hidden="true"
             className={css({
               position: "relative",
+              width: "1.25rem",
+              height: "1.25rem",
+              flexShrink: 0,
             })}
           >
-            <ScallopedCorners
+            <span
               className={css({
-                width: "min(48rem, calc(100vw - 2rem))",
-                maxHeight: "calc(100dvh - 2rem)",
+                position: "absolute",
+                top: "50%",
+                left: 0,
+                width: "100%",
+                height: "2px",
+                mt: "-1px",
+                backgroundColor: "currentColor",
               })}
-              contentClassName={css({
-                position: "relative",
-                color: "primary.oakBarkBrown",
-                p: { base: "2rem", md: "3rem" },
-                overflowY: "auto",
-                maxHeight: "calc(100dvh - 2rem)",
+            />
+            {/* Vertical bar turns flat when open, so the plus becomes a minus */}
+            <motion.span
+              animate={{ rotate: isOpen ? 90 : 0 }}
+              transition={{ duration: 0.25, ease: "easeInOut" }}
+              className={css({
+                position: "absolute",
+                left: "50%",
+                top: 0,
+                width: "2px",
+                height: "100%",
+                ml: "-1px",
+                backgroundColor: "currentColor",
+              })}
+            />
+          </span>
+        </button>
+      </h3>
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            id={panelId}
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.35, ease: "easeInOut" }}
+            className={css({ overflow: "hidden" })}
+          >
+            <div
+              className={css({
+                display: "flex",
+                flexDirection: "column",
+                gap: "1rem",
+                pb: "1.5rem",
               })}
             >
-              <button
-                type="button"
-                aria-label="Close read more dialog"
-                onClick={() => setIsReadMoreOpen(false)}
-                className={css({
-                  position: "absolute",
-                  top: "2rem",
-                  right: "2rem",
-                  zIndex: 1,
-                  width: "1rem",
-                  height: "1rem",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  cursor: "pointer",
-                  backgroundColor: "transparent",
-                  border: "none",
-                  p: 0,
-                })}
-              >
-                <img
-                  src={CrossIcon}
-                  alt=""
+              {section.paragraphs.map((paragraph) => (
+                <p key={paragraph} className={bodyTextStyles}>
+                  {paragraph}
+                </p>
+              ))}
+              {section.paths && (
+                <ul
                   className={css({
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "contain",
-                  })}
-                />
-              </button>
-              <motion.div
-                initial="hidden"
-                animate="visible"
-                variants={{
-                  hidden: {},
-                  visible: {
-                    transition: {
-                      staggerChildren: 1,
-                    },
-                  },
-                }}
-                className={css({
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "1rem",
-                })}
-              >
-                <h2
-                  id="read-more-title"
-                  className={css({
-                    textStyle: "subheading",
+                    listStyle: "none",
                     margin: 0,
+                    p: 0,
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "0.5rem",
                   })}
                 >
-                  The Forest History Mystery
-                </h2>
-                {readMoreParagraphs.map((paragraph) => (
-                  <motion.p
-                    key={paragraph}
-                    variants={{
-                      hidden: { opacity: 0, y: 16 },
-                      visible: { opacity: 1, y: 0 },
-                    }}
-                    transition={{ duration: 0.7, ease: "easeOut" }}
-                    className={css({
-                      textStyle: "body",
-                      margin: 0,
-                    })}
-                  >
-                    {paragraph}
-                  </motion.p>
-                ))}
-                <button
-                  type="button"
-                  onClick={() => setIsReadMoreOpen(false)}
-                  className={css({
-                    alignSelf: "flex-start",
-                    mt: "1rem",
-                    textStyle: "body",
-                    color: "secondary.parchmentCream",
-                    backgroundColor: "secondary.blackberry",
-                    border: "none",
-                    cursor: "pointer",
-                    px: "1rem",
-                    py: "0.5rem",
-                  })}
-                >
-                  Close
-                </button>
-              </motion.div>
-            </ScallopedCorners>
-          </div>
+                  {section.paths.map((path) => (
+                    <li key={path.name} className={bodyTextStyles}>
+                      <strong className={css({ color: "woodland.ochre" })}>{path.name}</strong> –{" "}
+                      {path.description}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+export const IntroSection = () => {
+  // Only one section is open at a time; opening another collapses the rest
+  const [openTitle, setOpenTitle] = useState<string | null>(null);
+
+  return (
+    <SnapSection color="pineShadow" scrollIndicatorTone="light">
+      {/* Phones only: black treeline silhouette turned white by the filter, pinned to the bottom of the section */}
+      <img
+        src={TreelineImage}
+        alt=""
+        aria-hidden="true"
+        className={css({
+          display: { base: "block", md: "none" },
+          position: "absolute",
+          left: "50%",
+          bottom: 0,
+          // Pushed down 10% of its height so the solid strip of ground below the trees is cut off
+          transform: "translate(-50%, 10%)",
+          width: "100%",
+          // Keeps the trees tall enough to see on phones
+          minWidth: "50rem",
+          height: "auto",
+          filter: "brightness(0) invert(1)",
+          opacity: 0.2,
+          pointerEvents: "none",
+          zIndex: 0,
+        })}
+      />
+      <div
+        className={css({
+          position: "relative",
+          zIndex: 1,
+          width: "100%",
+          maxWidth: "48rem",
+          boxSizing: "border-box",
+          px: "1.5rem",
+          pt: { base: "6rem", md: "5rem" },
+          // On phones the visible trees are 11.8rem tall, so leave that much room below the text
+          pb: { base: "11.8rem", md: "8rem" },
+          color: "woodland.straw",
+        })}
+      >
+        <h2
+          className={css({
+            textAlign: "center",
+            textStyle: "subheading",
+            fontSize: { base: "2.25rem", md: "3rem" },
+            margin: 0,
+            mb: "2.5rem",
+          })}
+        >
+          An experience like no other
+        </h2>
+        <div
+          className={css({
+            borderBottom: "1px solid",
+            borderColor: "woodland.lichen",
+          })}
+        >
+          {storySections.map((section) => (
+            <StoryToggle
+              key={section.title}
+              section={section}
+              isOpen={openTitle === section.title}
+              onToggle={() =>
+                setOpenTitle((current) => (current === section.title ? null : section.title))
+              }
+            />
+          ))}
         </div>
-      )}
+      </div>
     </SnapSection>
   );
 };
