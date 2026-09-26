@@ -1,7 +1,7 @@
 import { AnimatePresence, motion, useInView, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { css } from "../../styled-system/css";
-import LaughingVillagersImage from "../assets/quote-laughing-villagers.jpg";
+import BarnabysWardrobeImage from "../assets/quote-barnabys-wardrobe.jpg";
 import BenchLaughingImage from "../assets/quote-bench-laughing.jpg";
 import ThreeVillagersImage from "../assets/quote-three-villagers.jpg";
 import { ScrollDownIndicator } from "./ScrollDownIndicator";
@@ -25,7 +25,7 @@ const testimonials: Testimonial[] = [
     quote:
       "I was so so impressed with the production quality and depth of the characters in particular - would love to play as someone else to learn more about the world!",
     name: "Patrick",
-    description: "software developer from Peckham",
+    description: "software developer, London",
     image: ThreeVillagersImage,
     imageAlt: "Three young players in costume laughing together on a bench in the woods",
     imagePosition: { base: "30% center", md: "center" },
@@ -35,7 +35,7 @@ const testimonials: Testimonial[] = [
     quote:
       "A brilliant concept which involved much thought, hard-work and enthusiasm in bringing this brilliant idea to abundant fruition.",
     name: "Valerie",
-    description: "retired secretary from Crowborough",
+    description: "PA, Crowborough",
     image: BenchLaughingImage,
     imageAlt: "Two women in costume laughing together on a bench under the woodland canopy",
     // Lower crop keeps the name signs (reversed by the mirror) off the top of the screen
@@ -47,8 +47,8 @@ const testimonials: Testimonial[] = [
     quote:
       "I would absolutely love to do this again. As a complete beginner I found it totally engaging and immersive. Honestly, I think this is a terrific idea - so much thought has gone into making it pretty close to perfect.",
     name: "Janet",
-    description: "editor from Groombridge",
-    image: LaughingVillagersImage,
+    description: "Publisher, East Sussex",
+    image: BarnabysWardrobeImage,
     imageAlt: "Villagers in costume laughing together in the woods",
     imagePosition: { base: "55% center", md: "0%" },
     cropRight: 28,
