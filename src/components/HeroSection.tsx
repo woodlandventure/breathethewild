@@ -141,7 +141,7 @@ export const HeroSection = () => {
             maxWidth: "36rem",
           })}
         >
-          Reflect. Reconnect. Reset. We bring colleagues and friends together for unique personalised
+          Reflect. Reconnect. Reset. We bring colleagues and friends together for unique personalised experiences
         </p>
 
         <motion.button
