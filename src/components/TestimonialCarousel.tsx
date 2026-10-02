@@ -179,7 +179,9 @@ const testimonials: Testimonial[] = [
     location: "London",
     image: ElizaImage,
     imageAlt: "Two women in costume laughing together at a craft table",
-    imagePosition: { base: "70% center", md: "center" },
+    // Mirrored so Eliza, the younger woman, sits clear of the quote
+    imagePosition: { base: "30% center", md: "center" },
+    mirror: true,
   },
   {
     quote:
